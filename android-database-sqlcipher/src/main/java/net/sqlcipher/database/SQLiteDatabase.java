@@ -2678,7 +2678,7 @@ public class SQLiteDatabase extends SQLiteClosable implements
             }
         } catch (RuntimeException e) {
           if(BuildConfig.DEBUG){
-            Log.e(TAG, e.getMessage(), e);
+            Log.w(TAG, e.getMessage(), e);
           }
           throw e;
         }
