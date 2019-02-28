@@ -19,8 +19,8 @@ format:
 	$(GRADLE) editorconfigFormat
 
 build-debug: check
-	$(GRADLE) android-database-sqlcipher:bundleDebugAar \
-	-PdebugBuild=true
+	TERM=dumb $(GRADLE) android-database-sqlcipher:bundleDebugAar \
+	-PdebugBuild=true --stacktrace
 
 build-release:
 	$(GRADLE) android-database-sqlcipher:bundleReleaseAar \
