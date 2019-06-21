@@ -1,0 +1,3 @@
+env:
+  ANDROID_NDK_ROOT : `pwd`/android-ndk-r15c
+  PATH : ${PATH}:$ANDROID_NDK_ROOT
