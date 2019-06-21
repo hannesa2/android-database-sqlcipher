@@ -2624,7 +2624,7 @@ public class SQLiteDatabase extends SQLiteClosable implements
                     rekey(password);
                 }
                 shouldCloseConnection = false;
-            } else {
+            } else if (!ex.getMessage().contains("not an error")) {
                 throw ex;
             }
             if(keyMaterial != null && keyMaterial.length > 0) {
