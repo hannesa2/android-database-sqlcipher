@@ -40,6 +40,7 @@ before_script:
 script:
   - set -o pipefail
   - make init
+  - ./gradlew editorconfigFormat
   - make build-release
   - set +o pipefail
 
