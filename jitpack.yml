@@ -1,0 +1,10 @@
+jdk:
+  - openjdk9
+#before_install:
+#  - ./custom_setup.sh
+install:
+  - echo "Running a custom install command"
+  - ./gradlew clean install -xtest
+env:
+  ANDROID_NDK_ROOT : `pwd`/android-ndk-r15c
+  PATH : ${PATH}:$ANDROID_NDK_ROOT
