@@ -82,9 +82,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
         deactivateInternal();
     }
 
-    /**
-     * @hide
-     */
     public void deactivateInternal() {
         if (mSelfObserver != null) {
             mContentResolver.unregisterContentObserver(mSelfObserver);
@@ -114,7 +111,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean commitUpdates(Map<? extends Long,? extends Map<String,Object>> values) {
@@ -122,7 +118,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean deleteRow() {
@@ -295,7 +290,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateBlob(int columnIndex, byte[] value) {
@@ -303,7 +297,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateString(int columnIndex, String value) {
@@ -311,7 +304,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateShort(int columnIndex, short value) {
@@ -319,7 +311,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateInt(int columnIndex, int value) {
@@ -327,7 +318,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateLong(int columnIndex, long value) {
@@ -335,7 +325,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateFloat(int columnIndex, float value) {
@@ -343,7 +332,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateDouble(int columnIndex, double value) {
@@ -351,7 +339,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean updateToNull(int columnIndex) {
@@ -359,7 +346,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean update(int columnIndex, Object obj) {
@@ -390,7 +376,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
      * Returns <code>true</code> if there are pending updates that have not yet been committed.
      *
      * @return <code>true</code> if there are pending updates that have not yet been committed.
-     * @hide
      * @deprecated
      */
     public boolean hasUpdates() {
@@ -400,7 +385,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public void abortUpdates() {
@@ -410,7 +394,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean commitUpdates() {
@@ -418,7 +401,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
     }
 
     /**
-     * @hide
      * @deprecated
      */
     public boolean supportsUpdates() {
@@ -438,7 +420,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
 
     /**
      * This is hidden until the data set change model has been re-evaluated.
-     * @hide
      */
     protected void notifyDataSetChange() {
         mDataSetObservable.notifyChanged();
@@ -446,7 +427,6 @@ public abstract class AbstractCursor implements android.database.CrossProcessCur
 
     /**
      * This is hidden until the data set change model has been re-evaluated.
-     * @hide
      */
     protected DataSetObservable getDataSetObservable() {
         return mDataSetObservable;

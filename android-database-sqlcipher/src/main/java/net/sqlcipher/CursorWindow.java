@@ -309,7 +309,6 @@ public class CursorWindow extends android.database.CursorWindow implements Parce
      *   <li>{@link Cursor#FIELD_TYPE_STRING}</li>
      *   <li>{@link Cursor#FIELD_TYPE_BLOB}</li>
      *</ul>
-     *</p>
      *
      * @param row the row to read from, row - getStartPosition() being the actual row in the window
      * @param col the column to read from

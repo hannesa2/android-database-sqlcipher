@@ -28,7 +28,6 @@ import java.util.Map;
  * both process and language boundries. Application code should use the Cursor
  * interface directly.
  *
- * {@hide}
  */
 public interface IBulkCursor extends IInterface  {
     /**

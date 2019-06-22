@@ -29,7 +29,6 @@ import java.util.Map;
  * Native implementation of the bulk cursor. This is only for use in implementing
  * IPC, application code should use the Cursor interface.
  *
- * {@hide}
  */
 public abstract class BulkCursorNative extends Binder implements IBulkCursor
 {

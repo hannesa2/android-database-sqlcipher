@@ -23,7 +23,6 @@ import android.util.Log;
 /**
  * Provides debugging info about all SQLite databases running in the current process.
  *
- * {@hide}
  */
 public final class SQLiteDebug {
     /**

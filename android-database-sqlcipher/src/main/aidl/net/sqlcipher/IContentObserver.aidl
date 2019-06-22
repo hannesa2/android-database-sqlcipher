@@ -17,9 +17,6 @@
 
 package net.sqlcipher;
 
-/**
- * @hide
- */
 interface IContentObserver
 {
     /**

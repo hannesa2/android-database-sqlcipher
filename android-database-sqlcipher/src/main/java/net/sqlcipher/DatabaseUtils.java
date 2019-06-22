@@ -201,11 +201,9 @@ public class DatabaseUtils {
      *   <li>{@link Cursor#FIELD_TYPE_STRING}</li>
      *   <li>{@link Cursor#FIELD_TYPE_BLOB}</li>
      *</ul>
-     *</p>
      *
      * @param obj the object whose value type is to be returned
      * @return object value type
-     * @hide
      */
     public static int getTypeOfObject(Object obj) {
         if (obj == null) {
@@ -287,7 +285,6 @@ public class DatabaseUtils {
 
     /**
      * Concatenates two SQL WHERE clauses, handling empty or null values.
-     * @hide
      */
     public static String concatenateWhere(String a, String b) {
         if (TextUtils.isEmpty(a)) {
@@ -823,8 +820,6 @@ public class DatabaseUtils {
         private SQLiteStatement mPreparedStatement = null;
 
         /**
-         * {@hide}
-         *
          * These are the columns returned by sqlite's "PRAGMA
          * table_info(...)" command that we depend on.
          */

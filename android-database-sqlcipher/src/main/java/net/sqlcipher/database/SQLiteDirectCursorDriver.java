@@ -22,7 +22,6 @@ import net.sqlcipher.database.SQLiteDatabase.CursorFactory;
 /**
  * A cursor driver that uses the given query directly.
  *
- * @hide
  */
 public class SQLiteDirectCursorDriver implements SQLiteCursorDriver {
     private String mEditTable;

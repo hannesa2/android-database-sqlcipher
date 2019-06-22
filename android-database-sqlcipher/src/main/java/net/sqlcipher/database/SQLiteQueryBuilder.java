@@ -85,8 +85,6 @@ public class SQLiteQueryBuilder
      * by parenthesis and ANDed with the selection passed to {@link #query}. The final
      * WHERE clause looks like:
      *
-     * WHERE (&lt;append chunk 1>&lt;append chunk2>) AND (&lt;query() selection parameter>)
-     *
      * @param inWhere the chunk of text to append to the WHERE clause.
      */
     public void appendWhere(CharSequence inWhere) {
@@ -103,8 +101,6 @@ public class SQLiteQueryBuilder
      * Append a chunk to the WHERE clause of the query. All chunks appended are surrounded
      * by parenthesis and ANDed with the selection passed to {@link #query}. The final
      * WHERE clause looks like:
-     *
-     * WHERE (&lt;append chunk 1>&lt;append chunk2>) AND (&lt;query() selection parameter>)
      *
      * @param inWhere the chunk of text to append to the WHERE clause. it will be escaped
      * to avoid SQL injection attacks
@@ -144,9 +140,6 @@ public class SQLiteQueryBuilder
         mFactory = factory;
     }
 
-    /**
-     * @hide
-     */
     public void setStrictProjectionMap(boolean flag) {
         mStrictProjectionMap = flag;
     }

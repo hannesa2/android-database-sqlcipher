@@ -28,7 +28,6 @@ import java.io.IOException;
 /**
  * Some helper functions for using SQLite database to implement content providers.
  *
- * @hide
  */
 public class SQLiteContentHelper {
 

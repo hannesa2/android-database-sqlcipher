@@ -17,7 +17,7 @@
 package net.sqlcipher;
 
 /**
- * Extension of android.database.Cursor to support getType() for API < 11.
+ * Extension of android.database.Cursor to support getType() for API lower 11.
  */
 public interface Cursor extends android.database.Cursor {
     /*
@@ -53,7 +53,6 @@ public interface Cursor extends android.database.Cursor {
      *   <li>{@link #FIELD_TYPE_STRING}</li>
      *   <li>{@link #FIELD_TYPE_BLOB}</li>
      *</ul>
-     *</p>
      *
      * @param columnIndex the zero-based index of the target column.
      * @return column value type

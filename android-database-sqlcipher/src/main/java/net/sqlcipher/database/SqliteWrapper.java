@@ -27,10 +27,6 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
 
-/**
- * @hide
- */
-
 public final class SqliteWrapper {
     private static final String TAG = "SqliteWrapper";
     private static final String SQLITE_EXCEPTION_DETAIL_MESSAGE

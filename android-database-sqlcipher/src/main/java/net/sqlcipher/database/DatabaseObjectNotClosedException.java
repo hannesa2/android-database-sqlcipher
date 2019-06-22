@@ -19,7 +19,6 @@ package net.sqlcipher.database;
 /**
  * An exception that indicates that garbage-collector is finalizing a database object
  * that is not explicitly closed
- * @hide
  */
 public class DatabaseObjectNotClosedException extends RuntimeException
 {

@@ -17,7 +17,7 @@
 package net.sqlcipher;
 
 /**
- * Extension of android.database.CursorWrapper to support getType() for API < 11.
+ * Extension of android.database.CursorWrapper to support getType() for API lower 11.
  */
 public class CursorWrapper extends android.database.CursorWrapper implements Cursor {
 

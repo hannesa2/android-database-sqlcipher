@@ -331,7 +331,6 @@ public class SQLiteDatabase extends SQLiteClosable {
    * Flag for {@link #openDatabase} to open the database for reading and writing.
    * If the disk is full, this may fail even before you actually write anything.
    *
-   * {@more} Note that the value of this flag is 0, so it is the default.
    */
   public static final int OPEN_READWRITE = 0x00000000;          // update native code if changing
 
@@ -346,7 +345,6 @@ public class SQLiteDatabase extends SQLiteClosable {
   /**
    * Flag for {@link #openDatabase} to open the database without support for localized collators.
    *
-   * {@more} This causes the collator <code>LOCALIZED</code> not to be created.
    * You must be consistent when using this flag to use the setting the database was
    * created with.  If this is set, {@link #setLocale} will do nothing.
    */
@@ -456,7 +454,6 @@ public class SQLiteDatabase extends SQLiteClosable {
    */
   /* package */ Map<String, SQLiteCompiledSql> mCompiledQueries = new HashMap<String, SQLiteCompiledSql>();
   /**
-   * @hide
    */
   public static final int MAX_SQL_CACHE_SIZE = 250;
   private int mMaxSqlCacheSize = MAX_SQL_CACHE_SIZE; // max cache size per Database instance
@@ -944,14 +941,12 @@ public class SQLiteDatabase extends SQLiteClosable {
    * that there are no nested transactions (beginTransaction has only been called once) and will
    * throw an exception if that is not the case.
    *
-   * @param sleepAfterYieldDelay if > 0, sleep this long before starting a new transaction if
+   * @param sleepAfterYieldDelay if bigger 0, sleep this long before starting a new transaction if
    *   the lock was actually yielded. This will allow other background threads to make some
    *   more progress than they would if we started the transaction immediately.
    *
    * @return true if the transaction was yielded, false if queue was empty or database was not open
    *
-   * @throws IllegalStateException if the database is locked more than once by the current thread
-   * @throws InterruptedException if the thread was interrupted while sleeping
    */
   public boolean yieldIfContendedSafely(long sleepAfterYieldDelay) {
     /* safeguard: */
@@ -2049,7 +2044,6 @@ public class SQLiteDatabase extends SQLiteClosable {
      *
      * This work is incomplete and not fully tested or reviewed, so currently
      * hidden.
-     * @hide
      */
     public Cursor rawQuery(String sql, String[] selectionArgs,
                            int initialRead, int maxRead) {
@@ -2444,7 +2438,6 @@ public class SQLiteDatabase extends SQLiteClosable {
      * TABLE, DELETE, INSERT, etc. Multiple statements separated by ;s are not
      * supported. it takes a write lock,
      *
-     * @param sql
      * @param bindArgs only byte[], String, Long and Double are supported in bindArgs.
      *
      * @throws SQLException If the SQL string is invalid for some reason
@@ -2830,7 +2823,6 @@ public class SQLiteDatabase extends SQLiteClosable {
 
     /**
      * returns true if the given sql is cached in compiled-sql cache.
-     * @hide
      */
     public boolean isInCompiledSqlCache(String sql) {
         synchronized(mCompiledQueries) {
@@ -2840,7 +2832,6 @@ public class SQLiteDatabase extends SQLiteClosable {
 
     /**
      * purges the given sql from the compiled-sql cache.
-     * @hide
      */
     public void purgeFromCompiledSqlCache(String sql) {
         synchronized(mCompiledQueries) {
@@ -2850,7 +2841,6 @@ public class SQLiteDatabase extends SQLiteClosable {
 
     /**
      * remove everything from the compiled sql cache
-     * @hide
      */
     public void resetCompiledSqlCache() {
         synchronized(mCompiledQueries) {
@@ -2860,7 +2850,6 @@ public class SQLiteDatabase extends SQLiteClosable {
 
     /**
      * return the current maxCacheSqlCacheSize
-     * @hide
      */
     public synchronized int getMaxSqlCacheSize() {
         return mMaxSqlCacheSize;
@@ -2876,10 +2865,9 @@ public class SQLiteDatabase extends SQLiteClosable {
      *
      * synchronized because we don't want t threads to change cache size at the same time.
      * @param cacheSize the size of the cache. can be (0 to MAX_SQL_CACHE_SIZE)
-     * @throws IllegalStateException if input cacheSize > MAX_SQL_CACHE_SIZE or < 0 or
-     * < the value set with previous setMaxSqlCacheSize() call.
+     * @throws IllegalStateException if input cacheSize bigger MAX_SQL_CACHE_SIZE or lower 0 or
+     * lower the value set with previous setMaxSqlCacheSize() call.
      *
-     * @hide
      */
     public synchronized void setMaxSqlCacheSize(int cacheSize) {
         if (cacheSize > MAX_SQL_CACHE_SIZE || cacheSize < 0) {
