@@ -2,6 +2,32 @@ apply plugin: "com.android.library"
 apply plugin: "org.ec4j.editorconfig"
 apply from: "native.gradle"
 apply from: "maven.gradle"
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'android-database-sqlcipher'
+
+  publishedGroupId = 'info.hannes.android'
+  libraryName = 'database-sqlcipher'
+  artifact = 'android-database-sqlcipher'
+
+  libraryDescription = 'Android SQLite API based on SQLCipher'
+
+  siteUrl = 'https://github.com/hannesa2/android-database-sqlcipher'
+  gitUrl = 'https://github.com/hannesa2/android-database-sqlcipher.git'
+
+  libraryVersion = '4.2.0'
+
+  developerId = 'hannesa2'
+  developerName = 'Hannes Achleitner'
+  developerEmail = 'hannes.software@gmx.at'
+
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
+}
 
 android {
 
@@ -128,3 +154,6 @@ static def getJitpackBuildUrl() {
   def process = ("git describe --exact-match " + getLatestGitHash() + " 2>/dev/null | echo noTag").execute()
   return getGitRepoUrl().replace("https://github.com", "https://jitpack.io/com/github") + "/" + process.text.toString().replace("noTag", "").trim() + "/build.log"
 }
+
+// jcenter
+apply from: '../jcenter.gradle'

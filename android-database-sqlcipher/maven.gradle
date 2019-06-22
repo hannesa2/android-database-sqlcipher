@@ -29,11 +29,11 @@ def getRepositoryPassword() {
 }
 
 gradle.taskGraph.whenReady { taskGraph ->
-  if (taskGraph.allTasks.any { it instanceof Sign }) {
-    allprojects { ext."signing.keyId" = "${signingKeyId}" }
-    allprojects { ext."signing.secretKeyRingFile" = "${signingKeyRingFile}" }
-    allprojects { ext."signing.password" = "${signingKeyPassword}" }
-  }
+//  if (taskGraph.allTasks.any { it instanceof Sign }) {
+//    allprojects { ext."signing.keyId" = "${signingKeyId}" }
+//    allprojects { ext."signing.secretKeyRingFile" = "${signingKeyRingFile}" }
+//    allprojects { ext."signing.password" = "${signingKeyPassword}" }
+//  }
 }
 
 afterEvaluate { project ->
