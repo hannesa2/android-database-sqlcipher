@@ -17,7 +17,7 @@ ext {
   siteUrl = 'https://github.com/hannesa2/android-database-sqlcipher'
   gitUrl = 'https://github.com/hannesa2/android-database-sqlcipher.git'
 
-  libraryVersion = '4.2.0'
+  libraryVersion = '4.2.0.1'
 
   developerId = 'hannesa2'
   developerName = 'Hannes Achleitner'
