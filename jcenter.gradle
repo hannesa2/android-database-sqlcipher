@@ -75,6 +75,7 @@ bintray {
     publicDownloadNumbers = true
     version {
       desc = libraryDescription
+      released  = new Date()
     }
   }
 }
