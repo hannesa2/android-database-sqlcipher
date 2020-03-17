@@ -1,0 +1,35 @@
+name: CI Android
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - trust
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Env
+        run: env
+      - name: NDK search
+        run: find /usr/local/lib/android -iname ndk-build 2>/dev/null
+      - name: Search for ndk_locator_record.json before
+        run: find . -name ndk_locator_record.json 2>/dev/null
+      - name: Make init
+        run: make init
+      - name: Status
+        run: git status
+      - name: Build with Gradle
+        run: export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk-bundle && ./gradlew clean check android-database-sqlcipher:bundleReleaseAar -PdebugBuild=false --stacktrace
+      - name: Search for ndk_locator_record.json after
+        run: find . -name ndk_locator_record.json 2>/dev/null
