@@ -1,17 +1,11 @@
 name: CI Android
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - trust
+on: [pull_request]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -21,15 +15,11 @@ jobs:
           java-version: 1.8
       - name: Env
         run: env
-      - name: NDK search
-        run: find /usr/local/lib/android -iname ndk-build 2>/dev/null
-      - name: Search for ndk_locator_record.json before
-        run: find . -name ndk_locator_record.json 2>/dev/null
       - name: Make init
         run: make init
       - name: Status
         run: git status
       - name: Build with Gradle
-        run: export ANDROID_NDK_HOME=/usr/local/lib/android/sdk/ndk-bundle && ./gradlew clean check android-database-sqlcipher:bundleReleaseAar -PdebugBuild=false --stacktrace
+        run: ./gradlew clean check android-database-sqlcipher:bundleReleaseAar -PdebugBuild=false
       - name: Search for ndk_locator_record.json after
         run: find . -name ndk_locator_record.json 2>/dev/null
